@@ -9,7 +9,6 @@ script: gulp
 cache:
   directories:
   - node_modules
-  - bower_components
 branches:
   only:
   - features/travis

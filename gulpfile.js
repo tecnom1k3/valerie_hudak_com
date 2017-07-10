@@ -1,11 +1,14 @@
 // generated on 2017-07-08 using generator-webapp 3.0.1
-"use strict";
+'use strict';
+require('dotenv').config();
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+const rename = require('gulp-regex-rename');
+const s3   = require('gulp-s3');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -53,6 +56,8 @@ gulp.task('html', ['styles', 'scripts'], () => {
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
     .pipe($.if(/\.css$/, $.cssnano({safe: true, autoprefixer: false})))
+      .pipe($.rev())
+      .pipe($.revReplace())
     .pipe($.if(/\.html$/, $.htmlmin({
       collapseWhitespace: true,
       minifyCSS: true,
@@ -63,6 +68,8 @@ gulp.task('html', ['styles', 'scripts'], () => {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
     })))
+      .pipe(rename(/index-.*\.html$/, 'index.html'))
+      .pipe(rename(/index-.*\.html$/, ''))
     .pipe(gulp.dest('dist'));
 });
 
@@ -93,7 +100,7 @@ gulp.task('serve', () => {
   runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
     browserSync.init({
       notify: false,
-      port: process.env.PORT,
+      port: 8080,
       server: {
         baseDir: ['.tmp', 'app'],
         routes: {
@@ -118,7 +125,7 @@ gulp.task('serve', () => {
 gulp.task('serve:dist', ['default'], () => {
   browserSync.init({
     notify: false,
-    port: process.env.PORT,
+    port: 8080,
     server: {
       baseDir: ['dist']
     }
@@ -128,7 +135,7 @@ gulp.task('serve:dist', ['default'], () => {
 gulp.task('serve:test', ['scripts'], () => {
   browserSync.init({
     notify: false,
-    port: process.env.PORT,
+    port: 8080,
     ui: false,
     server: {
       baseDir: 'test',
@@ -163,4 +170,15 @@ gulp.task('default', () => {
     dev = false;
     runSequence(['clean', 'wiredep'], 'build', resolve);
   });
+});
+
+gulp.task('deploy', ['build'], () => {
+    const AWS = {
+        "key":    process.env.AWS_ACCESS_KEY_ID,
+        "secret": process.env.AWS_SECRET_ACCESS_KEY,
+        "bucket": process.env.AWS_BUCKET,
+        "region": process.env.AWS_REGION
+    };
+
+    gulp.src('./dist/**').pipe(s3(AWS));
 });

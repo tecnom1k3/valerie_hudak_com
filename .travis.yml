@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- node
+before_script:
+- npm install -g gulp-cli
+- npm install -g bower
+- bower install
+script: gulp
+branches:
+  only:
+  - develop
+  - master
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: valeriehudak.com
+  local-dir: dist
+  acl: public_read
+  skip_cleanup: true
+  on:
+    repo: tecnom1k3/valerie_hudak_com

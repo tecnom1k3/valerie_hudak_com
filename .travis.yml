@@ -19,3 +19,4 @@ deploy:
   skip_cleanup: true
   on:
     repo: tecnom1k3/valerie_hudak_com
+    all_branches: true

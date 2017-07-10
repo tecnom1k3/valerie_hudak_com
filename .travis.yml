@@ -8,7 +8,8 @@ before_script:
 script: gulp
 branches:
   only:
-  - features/travis
+  - develop
+  - master
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
@@ -19,4 +20,3 @@ deploy:
   skip_cleanup: true
   on:
     repo: tecnom1k3/valerie_hudak_com
-    all_branches: true

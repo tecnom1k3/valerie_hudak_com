@@ -1,15 +1,14 @@
 // generated on 2017-07-08 using generator-webapp 3.0.1
 'use strict';
 require('dotenv').config();
-const gulp = require('gulp');
+const gulp            = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
-const browserSync = require('browser-sync').create();
-const del = require('del');
-const wiredep = require('wiredep').stream;
-const runSequence = require('run-sequence');
-const rename = require('gulp-regex-rename');
-const s3   = require('gulp-s3');
-const prompt = require('gulp-prompt');
+const browserSync     = require('browser-sync').create();
+const del             = require('del');
+const wiredep         = require('wiredep').stream;
+const runSequence     = require('run-sequence');
+const rename          = require('gulp-regex-rename');
+const s3              = require('gulp-s3');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;

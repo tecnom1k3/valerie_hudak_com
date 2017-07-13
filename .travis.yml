@@ -19,7 +19,7 @@ deploy:
     acl: public_read
     skip_cleanup: true
     on:
-      repo: tecnom1k3/valerie_hudak_com
+      repo: $GIT_REPO
       branch: master
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY_ID
@@ -29,5 +29,5 @@ deploy:
     acl: public_read
     skip_cleanup: true
     on:
-      repo: tecnom1k3/valerie_hudak_com
+      repo: $GIT_REPO
       branch: develop

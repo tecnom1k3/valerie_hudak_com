@@ -8,13 +8,13 @@ before_script:
 script: gulp
 branches:
   only:
-  - features/multi-env
+  - develop
   - master
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: valeriehudak.com
+    bucket: $AWS_BUCKET_PROD
     local-dir: dist
     acl: public_read
     skip_cleanup: true
@@ -24,10 +24,10 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: stage.valeriehudak.com
+    bucket: $AWS_BUCKET_STAGE
     local-dir: dist
     acl: public_read
     skip_cleanup: true
     on:
       repo: tecnom1k3/valerie_hudak_com
-      branch: features/multi-env
+      branch: develop

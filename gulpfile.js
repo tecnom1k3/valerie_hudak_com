@@ -1,14 +1,14 @@
 // generated on 2017-07-08 using generator-webapp 3.0.1
 'use strict';
 require('dotenv').config();
-const gulp = require('gulp');
+const gulp            = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
-const browserSync = require('browser-sync').create();
-const del = require('del');
-const wiredep = require('wiredep').stream;
-const runSequence = require('run-sequence');
-const rename = require('gulp-regex-rename');
-const s3   = require('gulp-s3');
+const browserSync     = require('browser-sync').create();
+const del             = require('del');
+const wiredep         = require('wiredep').stream;
+const runSequence     = require('run-sequence');
+const rename          = require('gulp-regex-rename');
+const s3              = require('gulp-s3');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -172,13 +172,25 @@ gulp.task('default', () => {
   });
 });
 
-gulp.task('deploy', ['build'], () => {
+gulp.task('deploy:stage', ['build'], () => {
     const AWS = {
         "key":    process.env.AWS_ACCESS_KEY_ID,
         "secret": process.env.AWS_SECRET_ACCESS_KEY,
-        "bucket": process.env.AWS_BUCKET,
+        "bucket": process.env.AWS_BUCKET_STAGE,
         "region": process.env.AWS_REGION
     };
 
     gulp.src('./dist/**').pipe(s3(AWS));
 });
+
+gulp.task('deploy:prod', ['build'], () => {
+    const AWS = {
+        "key":    process.env.AWS_ACCESS_KEY_ID,
+        "secret": process.env.AWS_SECRET_ACCESS_KEY,
+        "bucket": process.env.AWS_BUCKET_PROD,
+        "region": process.env.AWS_REGION
+    };
+
+    gulp.src('./dist/**').pipe(s3(AWS));
+});
+

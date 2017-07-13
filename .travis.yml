@@ -11,12 +11,23 @@ branches:
   - develop
   - master
 deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: valeriehudak.com
-  local-dir: dist
-  acl: public_read
-  skip_cleanup: true
-  on:
-    repo: tecnom1k3/valerie_hudak_com
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: $AWS_BUCKET_PROD
+    local-dir: dist
+    acl: public_read
+    skip_cleanup: true
+    on:
+      repo: $GIT_REPO
+      branch: master
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: $AWS_BUCKET_STAGE
+    local-dir: dist
+    acl: public_read
+    skip_cleanup: true
+    on:
+      repo: $GIT_REPO
+      branch: develop

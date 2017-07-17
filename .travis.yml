@@ -6,10 +6,10 @@ before_script:
 - npm install -g bower
 - bower install
 script: gulp
-branches:
-  only:
-  - develop
-  - master
+#branches:
+#  only:
+#  - develop
+#  - master
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY_ID

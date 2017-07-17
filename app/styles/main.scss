@@ -1,0 +1,3319 @@
+$icon-font-path: '../fonts/';
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "colors";
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: $color_pumice_approx;
+  background-color: $color_baltic_sea_approx;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+.nav-pills {
+  > li {
+    > a {
+      background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+      filter: none;
+      border: 1px solid $black_60;
+      //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+      text-shadow: 1px 1px 1px $black_30;
+      &:hover {
+        background: linear-gradient($color_black_approx, $color_bunker_approx 40%, $color_vulcan_approx) no-repeat;
+        filter: none;
+        border: 1px solid $black_60;
+      }
+    }
+    &.active > a {
+      background: transparent linear-gradient($color_black_approx, $color_bunker_approx 40%, $color_vulcan_approx) no-repeat;
+      filter: none;
+      border: 1px solid $black_60;
+      &:hover {
+        background: transparent linear-gradient($color_black_approx, $color_bunker_approx 40%, $color_vulcan_approx) no-repeat;
+        filter: none;
+        border: 1px solid $black_60;
+      }
+      &:focus {
+        background-color: transparent;
+      }
+    }
+    &.disabled > a {
+      background: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx) no-repeat;
+      filter: none;
+      &:hover {
+        background: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx) no-repeat;
+        filter: none;
+      }
+    }
+  }
+  > .active > a > .badge {
+    color: $white;
+    background-color: $color_rolling_stone_approx;
+  }
+}
+
+.well {
+  background-color: $color_mirage_approx;
+  border: 1px solid $color_woodsmoke_approx;
+}
+
+//hr {
+//  border-top: 1px solid $color_mirage_approx;
+//}
+//
+//pre {
+//  color: $color_cape_cod_approx;
+//  border: 1px solid $color_celeste_approx;
+//}
+//
+//legend {
+//  border-bottom: 1px solid $color_mirage_approx;
+//  color: $white;
+//}
+//
+//table {
+//  background-color: $color_outer_space_approx;
+//}
+//
+//.img-thumbnail {
+//  background-color: $color_mirage_approx;
+//  border: 1px solid $color_woodsmoke_approx;
+//}
+//
+//h1 {
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: -1px -1px 0 $black_30;
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//h2 {
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: -1px -1px 0 $black_30;
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//h3 {
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: -1px -1px 0 $black_30;
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//h4 {
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: -1px -1px 0 $black_30;
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//h5 {
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: -1px -1px 0 $black_30;
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//h6 {
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: -1px -1px 0 $black_30;
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.h1 {
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.h2 {
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.h3 {
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.h4 {
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.h5 {
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.h6 {
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//a {
+//  color: $white;
+//  &.text-primary {
+//    &:hover {
+//      color: $color_shuttle_gray_approx;
+//    }
+//    &:focus {
+//      color: $color_shuttle_gray_approx;
+//    }
+//  }
+//  &.text-success {
+//    &:hover {
+//      color: $color_mercury_approx;
+//    }
+//    &:focus {
+//      color: $color_mercury_approx;
+//    }
+//  }
+//  &.text-info {
+//    &:hover {
+//      color: $color_mercury_approx;
+//    }
+//    &:focus {
+//      color: $color_mercury_approx;
+//    }
+//  }
+//  &.text-warning {
+//    &:hover {
+//      color: $color_mercury_approx;
+//    }
+//    &:focus {
+//      color: $color_mercury_approx;
+//    }
+//  }
+//  &.text-danger {
+//    &:hover {
+//      color: $color_mercury_approx;
+//    }
+//    &:focus {
+//      color: $color_mercury_approx;
+//    }
+//  }
+//  &.bg-primary {
+//    &:hover {
+//      background-color: $color_shuttle_gray_approx;
+//    }
+//    &:focus {
+//      background-color: $color_shuttle_gray_approx;
+//    }
+//  }
+//  &.bg-success {
+//    &:hover {
+//      background-color: $color_apple_approx;
+//    }
+//    &:focus {
+//      background-color: $color_apple_approx;
+//    }
+//  }
+//  &.bg-info {
+//    &:hover {
+//      background-color: $color_scooter_approx;
+//    }
+//    &:focus {
+//      background-color: $color_scooter_approx;
+//    }
+//  }
+//  &.bg-warning {
+//    &:hover {
+//      background-color: $color_indochine_approx;
+//    }
+//    &:focus {
+//      background-color: $color_indochine_approx;
+//    }
+//  }
+//  &.bg-danger {
+//    &:hover {
+//      background-color: $color_alizarin_crimson_approx;
+//    }
+//    &:focus {
+//      background-color: $color_alizarin_crimson_approx;
+//    }
+//  }
+//  &.thumbnail {
+//    &:hover {
+//      border-color: $color_woodsmoke_approx;
+//    }
+//    &:focus {
+//      border-color: $color_woodsmoke_approx;
+//    }
+//    &.active {
+//      border-color: $color_woodsmoke_approx;
+//    }
+//  }
+//  &.list-group-item {
+//    color: $color_pumice_approx;
+//    .list-group-item-heading {
+//      color: $white;
+//    }
+//    &:hover {
+//      color: $color_pumice_approx;
+//      background-color: $color_bright_gray_approx;
+//    }
+//    &:focus {
+//      color: $color_pumice_approx;
+//      background-color: $color_bright_gray_approx;
+//    }
+//    &.active {
+//      border-color: $black_60;
+//      &:hover {
+//        border-color: $black_60;
+//      }
+//      &:focus {
+//        border-color: $black_60;
+//      }
+//    }
+//  }
+//  &.list-group-item-success {
+//    color: $white;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_apple_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_apple_approx;
+//    }
+//    &.active {
+//      color: $white;
+//      border-color: $white;
+//      background-color: $color_fern_approx;
+//      &:hover {
+//        color: $white;
+//        border-color: $white;
+//        background-color: $color_apple_approx;
+//      }
+//      &:focus {
+//        color: $white;
+//        border-color: $white;
+//        background-color: $color_apple_approx;
+//      }
+//    }
+//  }
+//  &.list-group-item-info {
+//    color: $white;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_picton_blue_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_picton_blue_approx;
+//    }
+//    &.active {
+//      background-color: $white;
+//      border-color: $white;
+//      &:hover {
+//        background-color: $white;
+//        border-color: $white;
+//      }
+//      &:focus {
+//        background-color: $white;
+//        border-color: $white;
+//      }
+//    }
+//  }
+//  &.list-group-item-warning {
+//    color: $white;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_tahiti_gold_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_tahiti_gold_approx;
+//    }
+//    &.active {
+//      border-color: $white;
+//      background-color: $color_pizazz_approx;
+//      &:hover {
+//        border-color: $white;
+//        background-color: $color_tahiti_gold_approx;
+//      }
+//      &:focus {
+//        border-color: $white;
+//        background-color: $color_tahiti_gold_approx;
+//      }
+//    }
+//  }
+//  &.list-group-item-danger {
+//    color: $white;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_sunset_orange_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_sunset_orange_approx;
+//    }
+//    &.active {
+//      color: $white;
+//      border-color: $white;
+//      background-color: $color_carnation_approx;
+//      &:hover {
+//        color: $white;
+//        border-color: $white;
+//        background-color: $color_sunset_orange_approx;
+//      }
+//      &:focus {
+//        color: $white;
+//        border-color: $white;
+//        background-color: $color_sunset_orange_approx;
+//      }
+//    }
+//  }
+//}
+//
+//mark {
+//  background-color: $color_pizazz_approx;
+//}
+//
+//.mark {
+//  background-color: $color_pizazz_approx;
+//}
+//
+//.text-muted {
+//  color: $color_rolling_stone_approx;
+//}
+//
+//.text-primary {
+//  color: $color_rolling_stone_approx;
+//  &:hover {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.text-success {
+//  color: $color_fern_approx;
+//  &:hover {
+//    color: $color_fern_approx;
+//  }
+//}
+//
+//.text-info {
+//  color: $color_viking_approx;
+//  &:hover {
+//    color: $color_viking_approx;
+//  }
+//}
+//
+//.text-warning {
+//  color: $color_pizazz_approx;
+//  &:hover {
+//    color: $color_pizazz_approx;
+//  }
+//}
+//
+//.text-danger {
+//  color: $color_carnation_approx;
+//  &:hover {
+//    color: $color_carnation_approx;
+//  }
+//}
+//
+//.bg-primary {
+//  background-color: $color_rolling_stone_approx;
+//}
+//
+//.bg-success {
+//  background-color: $color_fern_approx;
+//}
+//
+//.bg-info {
+//  background-color: $color_viking_approx;
+//}
+//
+//.bg-warning {
+//  background-color: $color_pizazz_approx;
+//}
+//
+//.bg-danger {
+//  background-color: $color_carnation_approx;
+//}
+//
+//.page-header {
+//  border-bottom: 1px solid $color_mirage_approx;
+//}
+//
+//abbr[title] {
+//  border-bottom: 1px dotted $color_rolling_stone_approx;
+//}
+//
+//abbr[data-original-title] {
+//  border-bottom: 1px dotted $color_rolling_stone_approx;
+//}
+//
+//blockquote {
+//  border-left: 5px solid $color_rolling_stone_approx;
+//  footer {
+//    color: $color_rolling_stone_approx;
+//  }
+//  small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  .small {
+//    color: $color_rolling_stone_approx;
+//  }
+//  &.pull-right {
+//    border-right: 5px solid $color_rolling_stone_approx;
+//  }
+//}
+//
+//.blockquote-reverse {
+//  border-right: 5px solid $color_rolling_stone_approx;
+//}
+//
+//caption {
+//  color: $color_rolling_stone_approx;
+//}
+//
+//.table {
+//  > tbody {
+//    > tr {
+//      > th {
+//        border-top: 1px solid $color_mirage_approx;
+//        &.active {
+//          background-color: $color_trout_approx;
+//        }
+//        &.success {
+//          background-color: $color_fern_approx;
+//        }
+//        &.info {
+//          background-color: $color_viking_approx;
+//        }
+//        &.warning {
+//          background-color: $color_pizazz_approx;
+//        }
+//        &.danger {
+//          background-color: $color_carnation_approx;
+//        }
+//      }
+//      > td {
+//        border-top: 1px solid $color_mirage_approx;
+//        &.active {
+//          background-color: $color_trout_approx;
+//        }
+//        &.success {
+//          background-color: $color_fern_approx;
+//        }
+//        &.info {
+//          background-color: $color_viking_approx;
+//        }
+//        &.warning {
+//          background-color: $color_pizazz_approx;
+//        }
+//        &.danger {
+//          background-color: $color_carnation_approx;
+//        }
+//      }
+//      &.active {
+//        > td {
+//          background-color: $color_trout_approx;
+//        }
+//        > th {
+//          background-color: $color_trout_approx;
+//        }
+//      }
+//      &.success {
+//        > td {
+//          background-color: $color_fern_approx;
+//        }
+//        > th {
+//          background-color: $color_fern_approx;
+//        }
+//      }
+//      &.info {
+//        > td {
+//          background-color: $color_viking_approx;
+//        }
+//        > th {
+//          background-color: $color_viking_approx;
+//        }
+//      }
+//      &.warning {
+//        > td {
+//          background-color: $color_pizazz_approx;
+//        }
+//        > th {
+//          background-color: $color_pizazz_approx;
+//        }
+//      }
+//      &.danger {
+//        > td {
+//          background-color: $color_carnation_approx;
+//        }
+//        > th {
+//          background-color: $color_carnation_approx;
+//        }
+//      }
+//    }
+//    + tbody {
+//      border-top: 2px solid $color_mirage_approx;
+//    }
+//  }
+//  .table {
+//    background-color: $color_baltic_sea_approx;
+//  }
+//  .success {
+//    color: $white;
+//  }
+//  .warning {
+//    color: $white;
+//  }
+//  .danger {
+//    color: $white;
+//  }
+//  .info {
+//    color: $white;
+//  }
+//  > thead > tr {
+//    > th {
+//      border-top: 1px solid $color_mirage_approx;
+//      border-bottom: 2px solid $color_mirage_approx;
+//      &.active {
+//        background-color: $color_trout_approx;
+//      }
+//      &.success {
+//        background-color: $color_fern_approx;
+//      }
+//      &.info {
+//        background-color: $color_viking_approx;
+//      }
+//      &.warning {
+//        background-color: $color_pizazz_approx;
+//      }
+//      &.danger {
+//        background-color: $color_carnation_approx;
+//      }
+//    }
+//    > td {
+//      border-top: 1px solid $color_mirage_approx;
+//      &.active {
+//        background-color: $color_trout_approx;
+//      }
+//      &.success {
+//        background-color: $color_fern_approx;
+//      }
+//      &.info {
+//        background-color: $color_viking_approx;
+//      }
+//      &.warning {
+//        background-color: $color_pizazz_approx;
+//      }
+//      &.danger {
+//        background-color: $color_carnation_approx;
+//      }
+//    }
+//    &.active {
+//      > td {
+//        background-color: $color_trout_approx;
+//      }
+//      > th {
+//        background-color: $color_trout_approx;
+//      }
+//    }
+//    &.success {
+//      > td {
+//        background-color: $color_fern_approx;
+//      }
+//      > th {
+//        background-color: $color_fern_approx;
+//      }
+//    }
+//    &.info {
+//      > td {
+//        background-color: $color_viking_approx;
+//      }
+//      > th {
+//        background-color: $color_viking_approx;
+//      }
+//    }
+//    &.warning {
+//      > td {
+//        background-color: $color_pizazz_approx;
+//      }
+//      > th {
+//        background-color: $color_pizazz_approx;
+//      }
+//    }
+//    &.danger {
+//      > td {
+//        background-color: $color_carnation_approx;
+//      }
+//      > th {
+//        background-color: $color_carnation_approx;
+//      }
+//    }
+//  }
+//  > tfoot > tr {
+//    > th {
+//      border-top: 1px solid $color_mirage_approx;
+//      &.active {
+//        background-color: $color_trout_approx;
+//      }
+//      &.success {
+//        background-color: $color_fern_approx;
+//      }
+//      &.info {
+//        background-color: $color_viking_approx;
+//      }
+//      &.warning {
+//        background-color: $color_pizazz_approx;
+//      }
+//      &.danger {
+//        background-color: $color_carnation_approx;
+//      }
+//    }
+//    > td {
+//      border-top: 1px solid $color_mirage_approx;
+//      &.active {
+//        background-color: $color_trout_approx;
+//      }
+//      &.success {
+//        background-color: $color_fern_approx;
+//      }
+//      &.info {
+//        background-color: $color_viking_approx;
+//      }
+//      &.warning {
+//        background-color: $color_pizazz_approx;
+//      }
+//      &.danger {
+//        background-color: $color_carnation_approx;
+//      }
+//    }
+//    &.active {
+//      > td {
+//        background-color: $color_trout_approx;
+//      }
+//      > th {
+//        background-color: $color_trout_approx;
+//      }
+//    }
+//    &.success {
+//      > td {
+//        background-color: $color_fern_approx;
+//      }
+//      > th {
+//        background-color: $color_fern_approx;
+//      }
+//    }
+//    &.info {
+//      > td {
+//        background-color: $color_viking_approx;
+//      }
+//      > th {
+//        background-color: $color_viking_approx;
+//      }
+//    }
+//    &.warning {
+//      > td {
+//        background-color: $color_pizazz_approx;
+//      }
+//      > th {
+//        background-color: $color_pizazz_approx;
+//      }
+//    }
+//    &.danger {
+//      > td {
+//        background-color: $color_carnation_approx;
+//      }
+//      > th {
+//        background-color: $color_carnation_approx;
+//      }
+//    }
+//  }
+//}
+//
+//.table-bordered {
+//  border: 1px solid $color_mirage_approx;
+//  > thead > tr {
+//    > th {
+//      border: 1px solid $color_mirage_approx;
+//    }
+//    > td {
+//      border: 1px solid $color_mirage_approx;
+//    }
+//  }
+//  > tbody > tr {
+//    > th {
+//      border: 1px solid $color_mirage_approx;
+//    }
+//    > td {
+//      border: 1px solid $color_mirage_approx;
+//    }
+//  }
+//  > tfoot > tr {
+//    > th {
+//      border: 1px solid $color_mirage_approx;
+//    }
+//    > td {
+//      border: 1px solid $color_mirage_approx;
+//    }
+//  }
+//  tbody tr {
+//    &.success {
+//      td {
+//        border-color: $color_mirage_approx;
+//      }
+//      &:hover td {
+//        border-color: $color_mirage_approx;
+//      }
+//    }
+//    &.warning {
+//      td {
+//        border-color: $color_mirage_approx;
+//      }
+//      &:hover td {
+//        border-color: $color_mirage_approx;
+//      }
+//    }
+//    &.danger {
+//      td {
+//        border-color: $color_mirage_approx;
+//      }
+//      &:hover td {
+//        border-color: $color_mirage_approx;
+//      }
+//    }
+//  }
+//}
+//
+//output {
+//  color: $color_baltic_sea_approx;
+//}
+//
+//.form-control {
+//  color: $color_baltic_sea_approx;
+//  border: 1px solid $black;
+//  &:-ms-input-placeholder {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.form-control::-moz-placeholder {
+//  color: $color_rolling_stone_approx;
+//}
+//
+//.form-control::-webkit-input-placeholder {
+//  color: $color_rolling_stone_approx;
+//}
+//
+//.form-control[disabled] {
+//  background-color: $color_mountain_mist_approx;
+//}
+//
+//.form-control[readonly] {
+//  background-color: $color_mountain_mist_approx;
+//}
+//
+//fieldset[disabled] {
+//  .form-control {
+//    background-color: $color_mountain_mist_approx;
+//  }
+//  .btn-default {
+//    &:hover {
+//      background-color: $color_cape_cod_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//    &:focus {
+//      background-color: $color_cape_cod_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//    &.focus {
+//      background-color: $color_cape_cod_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//  }
+//  .btn-primary {
+//    &:hover {
+//      background-color: $color_rolling_stone_approx;
+//      border-color: $color_rolling_stone_approx;
+//    }
+//    &:focus {
+//      background-color: $color_rolling_stone_approx;
+//      border-color: $color_rolling_stone_approx;
+//    }
+//    &.focus {
+//      background-color: $color_rolling_stone_approx;
+//      border-color: $color_rolling_stone_approx;
+//    }
+//  }
+//  .btn-success {
+//    &:hover {
+//      background-color: $color_fern_approx;
+//      border-color: $color_fern_approx;
+//    }
+//    &:focus {
+//      background-color: $color_fern_approx;
+//      border-color: $color_fern_approx;
+//    }
+//    &.focus {
+//      background-color: $color_fern_approx;
+//      border-color: $color_fern_approx;
+//    }
+//  }
+//  .btn-info {
+//    &:hover {
+//      background-color: $color_viking_approx;
+//      border-color: $color_viking_approx;
+//    }
+//    &:focus {
+//      background-color: $color_viking_approx;
+//      border-color: $color_viking_approx;
+//    }
+//    &.focus {
+//      background-color: $color_viking_approx;
+//      border-color: $color_viking_approx;
+//    }
+//  }
+//  .btn-warning {
+//    &:hover {
+//      background-color: $color_pizazz_approx;
+//      border-color: $color_pizazz_approx;
+//    }
+//    &:focus {
+//      background-color: $color_pizazz_approx;
+//      border-color: $color_pizazz_approx;
+//    }
+//    &.focus {
+//      background-color: $color_pizazz_approx;
+//      border-color: $color_pizazz_approx;
+//    }
+//  }
+//  .btn-danger {
+//    &:hover {
+//      background-color: $color_carnation_approx;
+//      border-color: $color_carnation_approx;
+//    }
+//    &:focus {
+//      background-color: $color_carnation_approx;
+//      border-color: $color_carnation_approx;
+//    }
+//    &.focus {
+//      background-color: $color_carnation_approx;
+//      border-color: $color_carnation_approx;
+//    }
+//  }
+//  .btn-link {
+//    &:hover {
+//      color: $color_rolling_stone_approx;
+//    }
+//    &:focus {
+//      color: $color_rolling_stone_approx;
+//    }
+//  }
+//  .navbar-default .btn-link {
+//    &:hover {
+//      color: $color_celeste_approx;
+//    }
+//    &:focus {
+//      color: $color_celeste_approx;
+//    }
+//  }
+//  .navbar-inverse .btn-link {
+//    &:hover {
+//      color: $color_celeste_approx;
+//    }
+//    &:focus {
+//      color: $color_celeste_approx;
+//    }
+//  }
+//}
+//
+//.has-success {
+//  .help-block {
+//    color: $color_fern_approx;
+//  }
+//  .control-label {
+//    color: $color_fern_approx;
+//  }
+//  .radio {
+//    color: $color_fern_approx;
+//  }
+//  .checkbox {
+//    color: $color_fern_approx;
+//  }
+//  .radio-inline {
+//    color: $color_fern_approx;
+//  }
+//  .checkbox-inline {
+//    color: $color_fern_approx;
+//  }
+//  .form-control {
+//    border-color: $color_fern_approx;
+//    &:focus {
+//      //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//      box-shadow: inset 0 1px 1px $black_7_5, 0 0 6px $white;
+//      border-color: $color_fern_approx;
+//    }
+//  }
+//  .input-group-addon {
+//    color: $white;
+//    background-color: $color_fern_approx;
+//    border-color: $black_60;
+//  }
+//  .form-control-feedback {
+//    color: $color_fern_approx;
+//  }
+//  &.radio label {
+//    color: $color_fern_approx;
+//  }
+//  &.checkbox label {
+//    color: $color_fern_approx;
+//  }
+//  &.radio-inline label {
+//    color: $color_fern_approx;
+//  }
+//  &.checkbox-inline label {
+//    color: $color_fern_approx;
+//  }
+//}
+//
+//.has-warning {
+//  .help-block {
+//    color: $color_pizazz_approx;
+//  }
+//  .control-label {
+//    color: $color_pizazz_approx;
+//  }
+//  .radio {
+//    color: $color_pizazz_approx;
+//  }
+//  .checkbox {
+//    color: $color_pizazz_approx;
+//  }
+//  .radio-inline {
+//    color: $color_pizazz_approx;
+//  }
+//  .checkbox-inline {
+//    color: $color_pizazz_approx;
+//  }
+//  .form-control {
+//    border-color: $color_pizazz_approx;
+//    &:focus {
+//      //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//      box-shadow: inset 0 1px 1px $black_7_5, 0 0 6px $white;
+//      border-color: $color_pizazz_approx;
+//    }
+//  }
+//  .input-group-addon {
+//    color: $white;
+//    background-color: $color_pizazz_approx;
+//    border-color: $black_60;
+//  }
+//  .form-control-feedback {
+//    color: $color_pizazz_approx;
+//  }
+//  &.radio label {
+//    color: $color_pizazz_approx;
+//  }
+//  &.checkbox label {
+//    color: $color_pizazz_approx;
+//  }
+//  &.radio-inline label {
+//    color: $color_pizazz_approx;
+//  }
+//  &.checkbox-inline label {
+//    color: $color_pizazz_approx;
+//  }
+//}
+//
+//.has-error {
+//  .help-block {
+//    color: $color_carnation_approx;
+//  }
+//  .control-label {
+//    color: $color_carnation_approx;
+//  }
+//  .radio {
+//    color: $color_carnation_approx;
+//  }
+//  .checkbox {
+//    color: $color_carnation_approx;
+//  }
+//  .radio-inline {
+//    color: $color_carnation_approx;
+//  }
+//  .checkbox-inline {
+//    color: $color_carnation_approx;
+//  }
+//  .form-control {
+//    border-color: $color_carnation_approx;
+//    &:focus {
+//      //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//      box-shadow: inset 0 1px 1px $black_7_5, 0 0 6px $white;
+//      border-color: $color_carnation_approx;
+//    }
+//  }
+//  .input-group-addon {
+//    color: $white;
+//    background-color: $color_carnation_approx;
+//    border-color: $black_60;
+//  }
+//  .form-control-feedback {
+//    color: $color_carnation_approx;
+//  }
+//  &.radio label {
+//    color: $color_carnation_approx;
+//  }
+//  &.checkbox label {
+//    color: $color_carnation_approx;
+//  }
+//  &.radio-inline label {
+//    color: $color_carnation_approx;
+//  }
+//  &.checkbox-inline label {
+//    color: $color_carnation_approx;
+//  }
+//}
+//
+//.help-block {
+//  color: $white;
+//}
+//
+//.btn {
+//  border-color: $black_60;
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: 1px 1px 1px $black_30;
+//  &:hover {
+//    color: $white;
+//    border-color: $black_60;
+//    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//    text-shadow: 1px 1px 1px $black_30;
+//  }
+//  &:focus {
+//    color: $white;
+//  }
+//  &.focus {
+//    color: $white;
+//  }
+//}
+//
+//.btn-default {
+//  color: $white;
+//  background-color: $color_cape_cod_approx;
+//  border-color: $color_cape_cod_approx;
+//  background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//  filter: none;
+//  &:focus {
+//    color: $white;
+//    background-color: $color_shark_approx;
+//    border-color: $black;
+//  }
+//  &.focus {
+//    color: $white;
+//    background-color: $color_shark_approx;
+//    border-color: $black;
+//  }
+//  &:hover {
+//    color: $white;
+//    background-color: $color_shark_approx;
+//    border-color: $color_mirage_approx;
+//    background-image: linear-gradient($color_black_approx, $color_bunker_approx 40%, $color_vulcan_approx);
+//    background-repeat: no-repeat;
+//    filter: none;
+//  }
+//  &:active {
+//    color: $white;
+//    background-color: $color_shark_approx;
+//    border-color: $color_mirage_approx;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_bunker_approx;
+//      border-color: $black;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_bunker_approx;
+//      border-color: $black;
+//    }
+//    &.focus {
+//      color: $white;
+//      background-color: $color_bunker_approx;
+//      border-color: $black;
+//    }
+//  }
+//  &.active {
+//    color: $white;
+//    background-color: $color_shark_approx;
+//    border-color: $color_mirage_approx;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_bunker_approx;
+//      border-color: $black;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_bunker_approx;
+//      border-color: $black;
+//    }
+//    &.focus {
+//      color: $white;
+//      background-color: $color_bunker_approx;
+//      border-color: $black;
+//    }
+//  }
+//  &.disabled {
+//    &:hover {
+//      background-color: $color_cape_cod_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//    &:focus {
+//      background-color: $color_cape_cod_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//    &.focus {
+//      background-color: $color_cape_cod_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//  }
+//  .badge {
+//    color: $color_cape_cod_approx;
+//    background-color: $white;
+//  }
+//}
+//
+//.btn-default[disabled] {
+//  &:hover {
+//    background-color: $color_cape_cod_approx;
+//    border-color: $color_cape_cod_approx;
+//  }
+//  &:focus {
+//    background-color: $color_cape_cod_approx;
+//    border-color: $color_cape_cod_approx;
+//  }
+//  &.focus {
+//    background-color: $color_cape_cod_approx;
+//    border-color: $color_cape_cod_approx;
+//  }
+//}
+//
+//.btn-primary {
+//  background-color: $color_rolling_stone_approx;
+//  border-color: $color_rolling_stone_approx;
+//  background-image: linear-gradient($color_oslo_gray_approx, $color_rolling_stone_approx 60%, $color_pale_sky_approx);
+//  background-repeat: no-repeat;
+//  filter: none;
+//  &:focus {
+//    background-color: $color_shuttle_gray_approx;
+//    border-color: $color_cape_cod_approx;
+//  }
+//  &.focus {
+//    background-color: $color_shuttle_gray_approx;
+//    border-color: $color_cape_cod_approx;
+//  }
+//  &:hover {
+//    background-color: $color_shuttle_gray_approx;
+//    border-color: $color_mid_gray_approx;
+//    background-image: linear-gradient($color_cape_cod_approx, $color_abbey_approx 40%, $color_scarpa_flow_approx);
+//    background-repeat: no-repeat;
+//    filter: none;
+//  }
+//  &:active {
+//    background-color: $color_shuttle_gray_approx;
+//    border-color: $color_mid_gray_approx;
+//    &:hover {
+//      background-color: $color_abbey_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//    &:focus {
+//      background-color: $color_abbey_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//    &.focus {
+//      background-color: $color_abbey_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//  }
+//  &.active {
+//    background-color: $color_shuttle_gray_approx;
+//    border-color: $color_mid_gray_approx;
+//    &:hover {
+//      background-color: $color_abbey_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//    &:focus {
+//      background-color: $color_abbey_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//    &.focus {
+//      background-color: $color_abbey_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//  }
+//  &.disabled {
+//    &:hover {
+//      background-color: $color_rolling_stone_approx;
+//      border-color: $color_rolling_stone_approx;
+//    }
+//    &:focus {
+//      background-color: $color_rolling_stone_approx;
+//      border-color: $color_rolling_stone_approx;
+//    }
+//    &.focus {
+//      background-color: $color_rolling_stone_approx;
+//      border-color: $color_rolling_stone_approx;
+//    }
+//  }
+//  .badge {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.btn-primary[disabled] {
+//  &:hover {
+//    background-color: $color_rolling_stone_approx;
+//    border-color: $color_rolling_stone_approx;
+//  }
+//  &:focus {
+//    background-color: $color_rolling_stone_approx;
+//    border-color: $color_rolling_stone_approx;
+//  }
+//  &.focus {
+//    background-color: $color_rolling_stone_approx;
+//    border-color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.btn-success {
+//  background-color: $color_fern_approx;
+//  border-color: $color_fern_approx;
+//  background-image: linear-gradient($color_pastel_green_approx, $color_fern_approx 60%, $color_fern_approx);
+//  background-repeat: no-repeat;
+//  filter: none;
+//  &:focus {
+//    background-color: $color_apple_approx;
+//    border-color: $color_forest_green_approx;
+//  }
+//  &.focus {
+//    background-color: $color_apple_approx;
+//    border-color: $color_forest_green_approx;
+//  }
+//  &:hover {
+//    background-color: $color_apple_approx;
+//    border-color: $color_apple_approx;
+//    background-image: linear-gradient($color_forest_green_approx, $color_forest_green_approx 40%, $color_apple_approx);
+//    background-repeat: no-repeat;
+//    filter: none;
+//  }
+//  &:active {
+//    background-color: $color_apple_approx;
+//    border-color: $color_apple_approx;
+//    background-image: none;
+//    &:hover {
+//      background-color: $color_apple_approx;
+//      border-color: $color_forest_green_approx;
+//    }
+//    &:focus {
+//      background-color: $color_apple_approx;
+//      border-color: $color_forest_green_approx;
+//    }
+//    &.focus {
+//      background-color: $color_apple_approx;
+//      border-color: $color_forest_green_approx;
+//    }
+//  }
+//  &.active {
+//    background-color: $color_apple_approx;
+//    border-color: $color_apple_approx;
+//    background-image: none;
+//    &:hover {
+//      background-color: $color_apple_approx;
+//      border-color: $color_forest_green_approx;
+//    }
+//    &:focus {
+//      background-color: $color_apple_approx;
+//      border-color: $color_forest_green_approx;
+//    }
+//    &.focus {
+//      background-color: $color_apple_approx;
+//      border-color: $color_forest_green_approx;
+//    }
+//  }
+//  &.disabled {
+//    &:hover {
+//      background-color: $color_fern_approx;
+//      border-color: $color_fern_approx;
+//    }
+//    &:focus {
+//      background-color: $color_fern_approx;
+//      border-color: $color_fern_approx;
+//    }
+//    &.focus {
+//      background-color: $color_fern_approx;
+//      border-color: $color_fern_approx;
+//    }
+//  }
+//  .badge {
+//    color: $color_fern_approx;
+//  }
+//}
+//
+//.btn-success[disabled] {
+//  &:hover {
+//    background-color: $color_fern_approx;
+//    border-color: $color_fern_approx;
+//  }
+//  &:focus {
+//    background-color: $color_fern_approx;
+//    border-color: $color_fern_approx;
+//  }
+//  &.focus {
+//    background-color: $color_fern_approx;
+//    border-color: $color_fern_approx;
+//  }
+//}
+//
+//.btn-info {
+//  border-color: $color_viking_approx;
+//  background-image: linear-gradient($color_seagull_approx, $color_viking_approx 60%, $color_picton_blue_approx);
+//  background-repeat: no-repeat;
+//  filter: none;
+//  &:focus {
+//    background-color: $color_scooter_approx;
+//    border-color: $color_jelly_bean_approx;
+//  }
+//  &.focus {
+//    background-color: $color_scooter_approx;
+//    border-color: $color_jelly_bean_approx;
+//  }
+//  &:hover {
+//    background-color: $color_scooter_approx;
+//    border-color: $color_scooter_approx;
+//    background-image: linear-gradient($color_jelly_bean_approx, $color_eastern_blue_approx 40%, $color_curious_blue_approx);
+//    background-repeat: no-repeat;
+//    filter: none;
+//  }
+//  &:active {
+//    background-color: $color_scooter_approx;
+//    border-color: $color_scooter_approx;
+//    &:hover {
+//      background-color: $color_eastern_blue_approx;
+//      border-color: $color_jelly_bean_approx;
+//    }
+//    &:focus {
+//      background-color: $color_eastern_blue_approx;
+//      border-color: $color_jelly_bean_approx;
+//    }
+//    &.focus {
+//      background-color: $color_eastern_blue_approx;
+//      border-color: $color_jelly_bean_approx;
+//    }
+//  }
+//  &.active {
+//    background-color: $color_scooter_approx;
+//    border-color: $color_scooter_approx;
+//    &:hover {
+//      background-color: $color_eastern_blue_approx;
+//      border-color: $color_jelly_bean_approx;
+//    }
+//    &:focus {
+//      background-color: $color_eastern_blue_approx;
+//      border-color: $color_jelly_bean_approx;
+//    }
+//    &.focus {
+//      background-color: $color_eastern_blue_approx;
+//      border-color: $color_jelly_bean_approx;
+//    }
+//  }
+//  &.disabled {
+//    &:hover {
+//      background-color: $color_viking_approx;
+//      border-color: $color_viking_approx;
+//    }
+//    &:focus {
+//      background-color: $color_viking_approx;
+//      border-color: $color_viking_approx;
+//    }
+//    &.focus {
+//      background-color: $color_viking_approx;
+//      border-color: $color_viking_approx;
+//    }
+//  }
+//}
+//
+//.btn-info[disabled] {
+//  &:hover {
+//    background-color: $color_viking_approx;
+//    border-color: $color_viking_approx;
+//  }
+//  &:focus {
+//    background-color: $color_viking_approx;
+//    border-color: $color_viking_approx;
+//  }
+//  &.focus {
+//    background-color: $color_viking_approx;
+//    border-color: $color_viking_approx;
+//  }
+//}
+//
+//.btn-warning {
+//  background-color: $color_pizazz_approx;
+//  border-color: $color_pizazz_approx;
+//  background-image: linear-gradient($color_sea_buckthorn_approx, $color_pizazz_approx 60%, $color_tahiti_gold_approx);
+//  background-repeat: no-repeat;
+//  filter: none;
+//  &:focus {
+//    background-color: $color_indochine_approx;
+//    border-color: $color_cinnamon_approx;
+//  }
+//  &.focus {
+//    background-color: $color_indochine_approx;
+//    border-color: $color_cinnamon_approx;
+//  }
+//  &:hover {
+//    background-color: $color_indochine_approx;
+//    border-color: $color_indochine_approx;
+//    background-image: linear-gradient($color_rusty_nail_approx, $color_chelsea_gem_approx 40%, $color_mai_tai_approx);
+//    background-repeat: no-repeat;
+//    filter: none;
+//  }
+//  &:active {
+//    background-color: $color_indochine_approx;
+//    border-color: $color_indochine_approx;
+//    &:hover {
+//      background-color: $color_mai_tai_approx;
+//      border-color: $color_cinnamon_approx;
+//    }
+//    &:focus {
+//      background-color: $color_mai_tai_approx;
+//      border-color: $color_cinnamon_approx;
+//    }
+//    &.focus {
+//      background-color: $color_mai_tai_approx;
+//      border-color: $color_cinnamon_approx;
+//    }
+//  }
+//  &.active {
+//    background-color: $color_indochine_approx;
+//    border-color: $color_indochine_approx;
+//    &:hover {
+//      background-color: $color_mai_tai_approx;
+//      border-color: $color_cinnamon_approx;
+//    }
+//    &:focus {
+//      background-color: $color_mai_tai_approx;
+//      border-color: $color_cinnamon_approx;
+//    }
+//    &.focus {
+//      background-color: $color_mai_tai_approx;
+//      border-color: $color_cinnamon_approx;
+//    }
+//  }
+//  &.disabled {
+//    &:hover {
+//      background-color: $color_pizazz_approx;
+//      border-color: $color_pizazz_approx;
+//    }
+//    &:focus {
+//      background-color: $color_pizazz_approx;
+//      border-color: $color_pizazz_approx;
+//    }
+//    &.focus {
+//      background-color: $color_pizazz_approx;
+//      border-color: $color_pizazz_approx;
+//    }
+//  }
+//  .badge {
+//    color: $color_pizazz_approx;
+//  }
+//}
+//
+//.btn-warning[disabled] {
+//  &:hover {
+//    background-color: $color_pizazz_approx;
+//    border-color: $color_pizazz_approx;
+//  }
+//  &:focus {
+//    background-color: $color_pizazz_approx;
+//    border-color: $color_pizazz_approx;
+//  }
+//  &.focus {
+//    background-color: $color_pizazz_approx;
+//    border-color: $color_pizazz_approx;
+//  }
+//}
+//
+//.btn-danger {
+//  background-color: $color_carnation_approx;
+//  border-color: $color_carnation_approx;
+//  background-image: linear-gradient($color_froly_approx, $color_carnation_approx 60%, $color_sunset_orange_approx);
+//  background-repeat: no-repeat;
+//  filter: none;
+//  &:focus {
+//    background-color: $color_alizarin_crimson_approx;
+//    border-color: $color_milano_red_approx;
+//  }
+//  &.focus {
+//    background-color: $color_alizarin_crimson_approx;
+//    border-color: $color_milano_red_approx;
+//  }
+//  &:hover {
+//    background-color: $color_alizarin_crimson_approx;
+//    border-color: $color_alizarin_crimson_approx;
+//    background-image: linear-gradient($color_milano_red_approx, $color_thunderbird_approx 40%, $color_alizarin_crimson_approx);
+//    background-repeat: no-repeat;
+//    filter: none;
+//  }
+//  &:active {
+//    background-color: $color_alizarin_crimson_approx;
+//    border-color: $color_alizarin_crimson_approx;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_thunderbird_approx;
+//      border-color: $color_milano_red_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_thunderbird_approx;
+//      border-color: $color_milano_red_approx;
+//    }
+//    &.focus {
+//      color: $white;
+//      background-color: $color_thunderbird_approx;
+//      border-color: $color_milano_red_approx;
+//    }
+//  }
+//  &.active {
+//    background-color: $color_alizarin_crimson_approx;
+//    border-color: $color_alizarin_crimson_approx;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_thunderbird_approx;
+//      border-color: $color_milano_red_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_thunderbird_approx;
+//      border-color: $color_milano_red_approx;
+//    }
+//    &.focus {
+//      color: $white;
+//      background-color: $color_thunderbird_approx;
+//      border-color: $color_milano_red_approx;
+//    }
+//  }
+//  &.disabled {
+//    &:hover {
+//      background-color: $color_carnation_approx;
+//      border-color: $color_carnation_approx;
+//    }
+//    &:focus {
+//      background-color: $color_carnation_approx;
+//      border-color: $color_carnation_approx;
+//    }
+//    &.focus {
+//      background-color: $color_carnation_approx;
+//      border-color: $color_carnation_approx;
+//    }
+//  }
+//  .badge {
+//    color: $color_carnation_approx;
+//    background-color: $white;
+//  }
+//}
+//
+//.btn-danger[disabled] {
+//  &:hover {
+//    background-color: $color_carnation_approx;
+//    border-color: $color_carnation_approx;
+//  }
+//  &:focus {
+//    background-color: $color_carnation_approx;
+//    border-color: $color_carnation_approx;
+//  }
+//  &.focus {
+//    background-color: $color_carnation_approx;
+//    border-color: $color_carnation_approx;
+//  }
+//}
+//
+//.btn-link {
+//  color: $white;
+//  border-color: transparent;
+//  &:hover {
+//    color: $white;
+//    border-color: transparent;
+//  }
+//  &:focus {
+//    color: $white;
+//  }
+//}
+//
+//.btn-link[disabled] {
+//  &:hover {
+//    color: $color_rolling_stone_approx;
+//  }
+//  &:focus {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.dropdown-menu {
+//  background-color: $color_cape_cod_approx;
+//  border: 1px solid $color_baltic_sea_approx;
+//  .divider {
+//    background-color: $color_baltic_sea_approx;
+//  }
+//  > {
+//    .active > a {
+//      background-color: $color_baltic_sea_approx;
+//      &:hover {
+//        background-color: $color_baltic_sea_approx;
+//      }
+//      &:focus {
+//        background-color: $color_baltic_sea_approx;
+//      }
+//    }
+//    .disabled > a {
+//      color: $color_rolling_stone_approx;
+//      &:hover {
+//        color: $color_rolling_stone_approx;
+//      }
+//      &:focus {
+//        color: $color_rolling_stone_approx;
+//      }
+//    }
+//  }
+//  > li > a {
+//    color: $color_pumice_approx;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_baltic_sea_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_baltic_sea_approx;
+//    }
+//  }
+//}
+//
+//.dropdown-header {
+//  color: $color_rolling_stone_approx;
+//}
+//
+//.input-group-addon {
+//  background-color: $color_cape_cod_approx;
+//  border: 1px solid $black_60;
+//  background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//  filter: none;
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: 1px 1px 1px $black_30;
+//  color: $white;
+//}
+//
+//.nav {
+//  > li {
+//    > a {
+//      &:hover {
+//        background-color: $color_bright_gray_approx;
+//      }
+//      &:focus {
+//        background-color: $color_bright_gray_approx;
+//      }
+//    }
+//    &.disabled > a {
+//      color: $color_rolling_stone_approx;
+//      &:hover {
+//        color: $color_rolling_stone_approx;
+//      }
+//      &:focus {
+//        color: $color_rolling_stone_approx;
+//      }
+//    }
+//  }
+//  .open > a {
+//    background-color: $color_bright_gray_approx;
+//    border-color: $black_60;
+//    &:hover {
+//      background-color: $color_bright_gray_approx;
+//      border-color: $black_60;
+//    }
+//    &:focus {
+//      background-color: $color_bright_gray_approx;
+//      border-color: $black_60;
+//    }
+//  }
+//}
+//
+//.nav-tabs {
+//  border-bottom: 1px solid $color_mirage_approx;
+//  > li {
+//    > a:hover {
+//      border-color: $color_mirage_approx $color_mirage_approx $color_mirage_approx;
+//    }
+//    &.active > a {
+//      color: $white;
+//      background-color: $color_bright_gray_approx;
+//      border: 1px solid $color_mirage_approx;
+//      &:hover {
+//        color: $white;
+//        background-color: $color_bright_gray_approx;
+//        border: 1px solid $color_mirage_approx;
+//      }
+//      &:focus {
+//        color: $white;
+//        background-color: $color_bright_gray_approx;
+//        border: 1px solid $color_mirage_approx;
+//      }
+//    }
+//  }
+//  &.nav-justified > .active > a {
+//    border: 1px solid $color_mirage_approx;
+//    &:hover {
+//      border: 1px solid $color_mirage_approx;
+//    }
+//    &:focus {
+//      border: 1px solid $color_mirage_approx;
+//    }
+//  }
+//}
+//
+
+//
+//.navbar-default {
+//  background-color: $color_cape_cod_approx;
+//  border-color: $color_charade_approx;
+//  background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//  background-repeat: no-repeat;
+//  filter: none;
+//  border: 1px solid $black_60;
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: 1px 1px 1px $black_30;
+//  .navbar-brand {
+//    color: $color_pumice_approx;
+//    &:hover {
+//      color: $white;
+//      background-color: transparent;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: transparent;
+//    }
+//  }
+//  .navbar-text {
+//    color: $color_pumice_approx;
+//  }
+//  .navbar-nav {
+//    > {
+//      .active > a {
+//        color: $white;
+//        background-color: $color_shark_approx;
+//        &:hover {
+//          color: $white;
+//          background-color: $color_shark_approx;
+//        }
+//        &:focus {
+//          color: $white;
+//          background-color: $color_shark_approx;
+//        }
+//      }
+//      .disabled > a {
+//        color: $color_celeste_approx;
+//        &:hover {
+//          color: $color_celeste_approx;
+//        }
+//        &:focus {
+//          color: $color_celeste_approx;
+//        }
+//      }
+//      .open > a {
+//        background-color: $color_shark_approx;
+//        color: $white;
+//        &:hover {
+//          background-color: $color_shark_approx;
+//          color: $white;
+//        }
+//        &:focus {
+//          background-color: $color_shark_approx;
+//          color: $white;
+//        }
+//      }
+//    }
+//    > li > a {
+//      color: $color_pumice_approx;
+//      &:hover {
+//        color: $white;
+//        background-color: $color_shark_approx;
+//        background-image: linear-gradient($color_black_approx, $color_bunker_approx 40%, $color_vulcan_approx);
+//        background-repeat: no-repeat;
+//        filter: none;
+//      }
+//      &:focus {
+//        color: $white;
+//        background-color: $color_shark_approx;
+//      }
+//    }
+//  }
+//  .navbar-toggle {
+//    border-color: $color_shark_approx;
+//    &:hover {
+//      background-color: $color_shark_approx;
+//    }
+//    &:focus {
+//      background-color: $color_shark_approx;
+//    }
+//    .icon-bar {
+//      background-color: $color_pumice_approx;
+//    }
+//  }
+//  .navbar-collapse {
+//    border-color: $color_charade_approx;
+//  }
+//  .navbar-form {
+//    border-color: $color_charade_approx;
+//  }
+//  .navbar-link {
+//    color: $color_pumice_approx;
+//    &:hover {
+//      color: $white;
+//    }
+//  }
+//  .btn-link {
+//    color: $color_pumice_approx;
+//    &:hover {
+//      color: $white;
+//    }
+//    &:focus {
+//      color: $white;
+//    }
+//  }
+//  .btn-link[disabled] {
+//    &:hover {
+//      color: $color_celeste_approx;
+//    }
+//    &:focus {
+//      color: $color_celeste_approx;
+//    }
+//  }
+//}
+//
+//.navbar-inverse {
+//  background-color: $color_rolling_stone_approx;
+//  border-color: $color_shuttle_gray_approx;
+//  background-image: linear-gradient($color_oslo_gray_approx, $color_rolling_stone_approx 60%, $color_pale_sky_approx);
+//  background-repeat: no-repeat;
+//  filter: none;
+//  border: 1px solid $black_60;
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: 1px 1px 1px $black_30;
+//  .navbar-brand {
+//    color: $color_celeste_approx;
+//    &:hover {
+//      background-color: transparent;
+//    }
+//    &:focus {
+//      background-color: transparent;
+//    }
+//  }
+//  .navbar-text {
+//    color: $color_celeste_approx;
+//  }
+//  .navbar-nav {
+//    > {
+//      .active > a {
+//        background-color: $color_mid_gray_approx;
+//        &:hover {
+//          background-color: $color_mid_gray_approx;
+//        }
+//        &:focus {
+//          background-color: $color_mid_gray_approx;
+//        }
+//      }
+//      .disabled > a {
+//        color: $color_celeste_approx;
+//        &:hover {
+//          color: $color_celeste_approx;
+//        }
+//        &:focus {
+//          color: $color_celeste_approx;
+//        }
+//      }
+//      .open > a {
+//        background-color: $color_mid_gray_approx;
+//        color: $white;
+//        &:hover {
+//          background-color: $color_mid_gray_approx;
+//          color: $white;
+//        }
+//        &:focus {
+//          background-color: $color_mid_gray_approx;
+//          color: $white;
+//        }
+//      }
+//    }
+//    > li > a {
+//      color: $color_celeste_approx;
+//      &:hover {
+//        background-color: $color_mid_gray_approx;
+//        background-image: linear-gradient($color_cape_cod_approx, $color_abbey_approx 40%, $color_scarpa_flow_approx);
+//        background-repeat: no-repeat;
+//        filter: none;
+//      }
+//      &:focus {
+//        background-color: $color_mid_gray_approx;
+//      }
+//    }
+//  }
+//  .navbar-toggle {
+//    border-color: $color_mid_gray_approx;
+//    &:hover {
+//      background-color: $color_mid_gray_approx;
+//    }
+//    &:focus {
+//      background-color: $color_mid_gray_approx;
+//    }
+//  }
+//  .navbar-collapse {
+//    border-color: $color_nevada_approx;
+//  }
+//  .navbar-form {
+//    border-color: $color_nevada_approx;
+//  }
+//  .navbar-link {
+//    color: $color_celeste_approx;
+//  }
+//  .btn-link {
+//    color: $color_celeste_approx;
+//  }
+//  .btn-link[disabled] {
+//    &:hover {
+//      color: $color_celeste_approx;
+//    }
+//    &:focus {
+//      color: $color_celeste_approx;
+//    }
+//  }
+//  .badge {
+//    background-color: $color_mid_gray_approx;
+//  }
+//}
+//
+//.breadcrumb {
+//  background-color: transparent;
+//  border: 1px solid $black_60;
+//  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//  text-shadow: 1px 1px 1px $black_30;
+//  background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//  background-repeat: no-repeat;
+//  filter: none;
+//  > li + li:before {
+//    color: $color_celeste_approx;
+//  }
+//  > .active {
+//    color: $color_rolling_stone_approx;
+//  }
+//}
+//
+//.pagination {
+//  > li {
+//    > a {
+//      color: $white;
+//      background-color: $color_cape_cod_approx;
+//      border: 1px solid $black_60;
+//      //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//      text-shadow: 1px 1px 1px $black_30;
+//      background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//      background-repeat: no-repeat;
+//      filter: none;
+//      &:hover {
+//        color: $white;
+//        background-color: transparent;
+//        border-color: $black_60;
+//        background-image: linear-gradient($color_black_approx, $color_bunker_approx 40%, $color_vulcan_approx);
+//        background-repeat: no-repeat;
+//        filter: none;
+//      }
+//      &:focus {
+//        color: $white;
+//        background-color: transparent;
+//        border-color: $black_60;
+//      }
+//    }
+//    > span {
+//      color: $white;
+//      background-color: $color_cape_cod_approx;
+//      border: 1px solid $black_60;
+//      //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//      text-shadow: 1px 1px 1px $black_30;
+//      background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//      background-repeat: no-repeat;
+//      filter: none;
+//      &:hover {
+//        color: $white;
+//        background-color: transparent;
+//        border-color: $black_60;
+//        background-image: linear-gradient($color_black_approx, $color_bunker_approx 40%, $color_vulcan_approx);
+//        background-repeat: no-repeat;
+//        filter: none;
+//      }
+//      &:focus {
+//        color: $white;
+//        background-color: transparent;
+//        border-color: $black_60;
+//      }
+//    }
+//    &.active {
+//      > a {
+//        background-image: linear-gradient($color_black_approx, $color_bunker_approx 40%, $color_vulcan_approx);
+//        background-repeat: no-repeat;
+//        filter: none;
+//      }
+//      > span {
+//        background-image: linear-gradient($color_black_approx, $color_bunker_approx 40%, $color_vulcan_approx);
+//        background-repeat: no-repeat;
+//        filter: none;
+//      }
+//    }
+//    &.disabled {
+//      > a {
+//        background-color: transparent;
+//        background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//        filter: none;
+//        &:hover {
+//          background-color: transparent;
+//          background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//          filter: none;
+//        }
+//      }
+//      > span {
+//        background-color: transparent;
+//        background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//        filter: none;
+//        &:hover {
+//          background-color: transparent;
+//          background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//          filter: none;
+//        }
+//      }
+//    }
+//  }
+//  > {
+//    .active {
+//      > a {
+//        color: $white;
+//        background-color: $color_shark_approx;
+//        border-color: $black_60;
+//        &:hover {
+//          color: $white;
+//          background-color: $color_shark_approx;
+//          border-color: $black_60;
+//        }
+//        &:focus {
+//          color: $white;
+//          background-color: $color_shark_approx;
+//          border-color: $black_60;
+//        }
+//      }
+//      > span {
+//        color: $white;
+//        background-color: $color_shark_approx;
+//        border-color: $black_60;
+//        &:hover {
+//          color: $white;
+//          background-color: $color_shark_approx;
+//          border-color: $black_60;
+//        }
+//        &:focus {
+//          color: $white;
+//          background-color: $color_shark_approx;
+//          border-color: $black_60;
+//        }
+//      }
+//    }
+//    .disabled {
+//      > span {
+//        color: $color_rolling_stone_approx;
+//        border-color: $black_60;
+//        &:hover {
+//          color: $color_rolling_stone_approx;
+//          border-color: $black_60;
+//        }
+//        &:focus {
+//          color: $color_rolling_stone_approx;
+//          border-color: $black_60;
+//        }
+//      }
+//      > a {
+//        color: $color_rolling_stone_approx;
+//        border-color: $black_60;
+//        &:hover {
+//          color: $color_rolling_stone_approx;
+//          border-color: $black_60;
+//        }
+//        &:focus {
+//          color: $color_rolling_stone_approx;
+//          border-color: $black_60;
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//.pager {
+//  li {
+//    > a {
+//      background-color: $color_cape_cod_approx;
+//      border: 1px solid $black_60;
+//      &:hover {
+//        background-color: transparent;
+//      }
+//      &:focus {
+//        background-color: transparent;
+//      }
+//    }
+//    > span {
+//      background-color: $color_cape_cod_approx;
+//      border: 1px solid $black_60;
+//    }
+//  }
+//  .disabled {
+//    > a {
+//      color: $color_rolling_stone_approx;
+//      background-color: $color_cape_cod_approx;
+//      &:hover {
+//        color: $color_rolling_stone_approx;
+//        background-color: $color_cape_cod_approx;
+//      }
+//      &:focus {
+//        color: $color_rolling_stone_approx;
+//        background-color: $color_cape_cod_approx;
+//      }
+//    }
+//    > span {
+//      color: $color_rolling_stone_approx;
+//      background-color: $color_cape_cod_approx;
+//    }
+//  }
+//  > li {
+//    > a {
+//      background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//      background-repeat: no-repeat;
+//      filter: none;
+//      //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+//      text-shadow: 1px 1px 1px $black_30;
+//      &:hover {
+//        background-image: linear-gradient($color_black_approx, $color_bunker_approx 40%, $color_vulcan_approx);
+//        filter: none;
+//      }
+//    }
+//    &.disabled > a {
+//      background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//      filter: none;
+//      &:hover {
+//        background-image: linear-gradient($color_abbey_approx, $color_cape_cod_approx 60%, $color_outer_space_approx);
+//        filter: none;
+//      }
+//    }
+//  }
+//}
+//
+//.label-default {
+//  background-color: $color_cape_cod_approx;
+//}
+//
+//.label-default[href] {
+//  &:hover {
+//    background-color: $color_shark_approx;
+//  }
+//  &:focus {
+//    background-color: $color_shark_approx;
+//  }
+//}
+//
+//.label-primary {
+//  background-color: $color_rolling_stone_approx;
+//}
+//
+//.label-primary[href] {
+//  &:hover {
+//    background-color: $color_shuttle_gray_approx;
+//  }
+//  &:focus {
+//    background-color: $color_shuttle_gray_approx;
+//  }
+//}
+//
+//.label-success {
+//  background-color: $color_fern_approx;
+//}
+//
+//.label-success[href] {
+//  &:hover {
+//    background-color: $color_apple_approx;
+//  }
+//  &:focus {
+//    background-color: $color_apple_approx;
+//  }
+//}
+//
+//.label-info[href] {
+//  &:hover {
+//    background-color: $color_scooter_approx;
+//  }
+//  &:focus {
+//    background-color: $color_scooter_approx;
+//  }
+//}
+//
+//.label-warning {
+//  background-color: $color_pizazz_approx;
+//}
+//
+//.label-warning[href] {
+//  &:hover {
+//    background-color: $color_indochine_approx;
+//  }
+//  &:focus {
+//    background-color: $color_indochine_approx;
+//  }
+//}
+//
+//.label-danger {
+//  background-color: $color_carnation_approx;
+//}
+//
+//.label-danger[href] {
+//  &:hover {
+//    background-color: $color_alizarin_crimson_approx;
+//  }
+//  &:focus {
+//    background-color: $color_alizarin_crimson_approx;
+//  }
+//}
+//
+//.badge {
+//  background-color: $color_rolling_stone_approx;
+//}
+//
+//.list-group-item {
+//  background-color: $color_tuna_approx;
+//  border: 1px solid $black_60;
+//  &.active {
+//    color: $white;
+//    background-color: $color_bright_gray_approx;
+//    border-color: $black_60;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_bright_gray_approx;
+//      border-color: $black_60;
+//      .list-group-item-text {
+//        color: $color_gray_chateau_approx;
+//      }
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_bright_gray_approx;
+//      border-color: $black_60;
+//      .list-group-item-text {
+//        color: $color_gray_chateau_approx;
+//      }
+//    }
+//    .list-group-item-text {
+//      color: $color_gray_chateau_approx;
+//    }
+//    > .badge {
+//      color: $white;
+//      background-color: $color_rolling_stone_approx;
+//    }
+//  }
+//  &.disabled {
+//    background-color: $color_mountain_mist_approx;
+//    color: $color_rolling_stone_approx;
+//    &:hover {
+//      background-color: $color_mountain_mist_approx;
+//      color: $color_rolling_stone_approx;
+//      .list-group-item-text {
+//        color: $color_rolling_stone_approx;
+//      }
+//    }
+//    &:focus {
+//      background-color: $color_mountain_mist_approx;
+//      color: $color_rolling_stone_approx;
+//      .list-group-item-text {
+//        color: $color_rolling_stone_approx;
+//      }
+//    }
+//    .list-group-item-text {
+//      color: $color_rolling_stone_approx;
+//    }
+//  }
+//}
+//
+.jumbotron {
+  background-color: $color_mirage_approx;
+  border: 1px solid $black_60;
+  > hr {
+    border-top-color: $color_black_approx;
+  }
+}
+//
+//.thumbnail {
+//  background-color: $color_mirage_approx;
+//  border: 1px solid $color_woodsmoke_approx;
+//  .caption {
+//    color: $color_pumice_approx;
+//  }
+//}
+//
+//.alert-success {
+//  background-color: $color_fern_approx;
+//  border-color: $color_mantis_approx;
+//  color: $white;
+//  hr {
+//    border-top-color: $color_apple_approx;
+//  }
+//  .alert-link {
+//    color: $color_mercury_approx;
+//  }
+//}
+//
+//.alert-info {
+//  background-color: $color_viking_approx;
+//  border-color: $color_scooter_approx;
+//  color: $white;
+//  hr {
+//    border-top-color: $color_scooter_approx;
+//  }
+//  .alert-link {
+//    color: $color_mercury_approx;
+//  }
+//}
+//
+//.alert-warning {
+//  background-color: $color_pizazz_approx;
+//  border-color: $color_clementine_approx;
+//  color: $white;
+//  hr {
+//    border-top-color: $color_red_stage_approx;
+//  }
+//  .alert-link {
+//    color: $color_mercury_approx;
+//  }
+//}
+//
+//.alert-danger {
+//  background-color: $color_carnation_approx;
+//  border-color: $color_mandy_approx;
+//  color: $white;
+//  hr {
+//    border-top-color: $color_amaranth_approx;
+//  }
+//  .alert-link {
+//    color: $color_mercury_approx;
+//  }
+//}
+//
+//.progress {
+//  background-color: $color_mirage_approx;
+//}
+//
+//.progress-bar {
+//  background-color: $color_rolling_stone_approx;
+//}
+//
+//.progress-bar-success {
+//  background-color: $color_fern_approx;
+//}
+//
+//.progress-bar-warning {
+//  background-color: $color_pizazz_approx;
+//}
+//
+//.progress-bar-danger {
+//  background-color: $color_carnation_approx;
+//}
+//
+//button {
+//  &.list-group-item {
+//    color: $color_pumice_approx;
+//    .list-group-item-heading {
+//      color: $white;
+//    }
+//    &:hover {
+//      color: $color_pumice_approx;
+//      background-color: $color_bright_gray_approx;
+//    }
+//    &:focus {
+//      color: $color_pumice_approx;
+//      background-color: $color_bright_gray_approx;
+//    }
+//  }
+//  &.list-group-item-success {
+//    color: $white;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_apple_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_apple_approx;
+//    }
+//    &.active {
+//      color: $white;
+//      background-color: $white;
+//      border-color: $white;
+//      &:hover {
+//        color: $white;
+//        background-color: $white;
+//        border-color: $white;
+//      }
+//      &:focus {
+//        color: $white;
+//        background-color: $white;
+//        border-color: $white;
+//      }
+//    }
+//  }
+//  &.list-group-item-info {
+//    color: $white;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_picton_blue_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_picton_blue_approx;
+//    }
+//    &.active {
+//      background-color: $white;
+//      border-color: $white;
+//      &:hover {
+//        background-color: $white;
+//        border-color: $white;
+//      }
+//      &:focus {
+//        background-color: $white;
+//        border-color: $white;
+//      }
+//    }
+//  }
+//  &.list-group-item-warning {
+//    color: $white;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_tahiti_gold_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_tahiti_gold_approx;
+//    }
+//    &.active {
+//      background-color: $white;
+//      border-color: $white;
+//      &:hover {
+//        background-color: $white;
+//        border-color: $white;
+//      }
+//      &:focus {
+//        background-color: $white;
+//        border-color: $white;
+//      }
+//    }
+//  }
+//  &.list-group-item-danger {
+//    color: $white;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_sunset_orange_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_sunset_orange_approx;
+//    }
+//    &.active {
+//      color: $white;
+//      background-color: $white;
+//      border-color: $white;
+//      &:hover {
+//        color: $white;
+//        background-color: $white;
+//        border-color: $white;
+//      }
+//      &:focus {
+//        color: $white;
+//        background-color: $white;
+//        border-color: $white;
+//      }
+//    }
+//  }
+//}
+//
+//.list-group-item-success {
+//  color: $white;
+//  background-color: $color_fern_approx;
+//}
+//
+//.list-group-item-info {
+//  color: $white;
+//  background-color: $color_viking_approx;
+//}
+//
+//.list-group-item-warning {
+//  color: $white;
+//  background-color: $color_pizazz_approx;
+//}
+//
+//.list-group-item-danger {
+//  color: $white;
+//  background-color: $color_carnation_approx;
+//}
+//
+//.panel {
+//  background-color: $color_outer_space_approx;
+//  > {
+//
+//    .table + .panel-body {
+//      border-top: 1px solid $color_mirage_approx;
+//    }
+//    .table-responsive + .panel-body {
+//      border-top: 1px solid $color_mirage_approx;
+//    }
+//  }
+//}
+//
+//.panel-footer {
+//  background-color: $color_bright_gray_approx;
+//  border-top: 1px solid $black_60;
+//}
+//
+//.panel-group {
+//  .panel-heading + .panel-collapse > {
+//    .panel-body {
+//      border-top: 1px solid $black_60;
+//    }
+//    .list-group {
+//      border-top: 1px solid $black_60;
+//    }
+//  }
+//  .panel-footer + .panel-collapse .panel-body {
+//    border-bottom: 1px solid $black_60;
+//  }
+//}
+//
+//.panel-default {
+//  border-color: $black_60;
+//  > {
+//    .panel-heading {
+//      color: $color_pumice_approx;
+//      background-color: $color_bright_gray_approx;
+//      border-color: $black_60;
+//      .badge {
+//        color: $color_bright_gray_approx;
+//        background-color: $color_pumice_approx;
+//      }
+//      + .panel-collapse > .panel-body {
+//        border-top-color: $black_60;
+//      }
+//    }
+//    .panel-footer + .panel-collapse > .panel-body {
+//      border-bottom-color: $black_60;
+//    }
+//  }
+//}
+//
+//.panel-primary {
+//  border-color: $black_60;
+//  > {
+//    .panel-heading {
+//      color: $white;
+//      background-color: $color_rolling_stone_approx;
+//      border-color: $black_60;
+//      .badge {
+//        color: $color_rolling_stone_approx;
+//        background-color: $white;
+//      }
+//      + .panel-collapse > .panel-body {
+//        border-top-color: $black_60;
+//      }
+//    }
+//    .panel-footer + .panel-collapse > .panel-body {
+//      border-bottom-color: $black_60;
+//    }
+//  }
+//  .panel-heading {
+//    border-color: $black;
+//  }
+//}
+//
+//.panel-success {
+//  border-color: $black_60;
+//  > {
+//    .panel-heading {
+//      color: $white;
+//      background-color: $color_fern_approx;
+//      border-color: $black_60;
+//      .badge {
+//        color: $color_fern_approx;
+//        background-color: $white;
+//      }
+//      + .panel-collapse > .panel-body {
+//        border-top-color: $black_60;
+//      }
+//    }
+//    .panel-footer + .panel-collapse > .panel-body {
+//      border-bottom-color: $black_60;
+//    }
+//  }
+//  .panel-heading {
+//    border-color: $black;
+//  }
+//}
+//
+//.panel-info {
+//  border-color: $black_60;
+//  > {
+//    .panel-heading {
+//      color: $white;
+//      background-color: $color_viking_approx;
+//      border-color: $black_60;
+//      .badge {
+//        color: $color_viking_approx;
+//        background-color: $white;
+//      }
+//      + .panel-collapse > .panel-body {
+//        border-top-color: $black_60;
+//      }
+//    }
+//    .panel-footer + .panel-collapse > .panel-body {
+//      border-bottom-color: $black_60;
+//    }
+//  }
+//  .panel-heading {
+//    border-color: $black;
+//  }
+//}
+//
+//.panel-warning {
+//  border-color: $black_60;
+//  > {
+//    .panel-heading {
+//      color: $white;
+//      background-color: $color_pizazz_approx;
+//      border-color: $black_60;
+//      .badge {
+//        color: $color_pizazz_approx;
+//        background-color: $white;
+//      }
+//      + .panel-collapse > .panel-body {
+//        border-top-color: $black_60;
+//      }
+//    }
+//    .panel-footer + .panel-collapse > .panel-body {
+//      border-bottom-color: $black_60;
+//    }
+//  }
+//  .panel-heading {
+//    border-color: $black;
+//  }
+//}
+//
+//.panel-danger {
+//  border-color: $black_60;
+//  > {
+//    .panel-heading {
+//      color: $white;
+//      background-color: $color_carnation_approx;
+//      border-color: $black_60;
+//      .badge {
+//        color: $color_carnation_approx;
+//        background-color: $white;
+//      }
+//      + .panel-collapse > .panel-body {
+//        border-top-color: $black_60;
+//      }
+//    }
+//    .panel-footer + .panel-collapse > .panel-body {
+//      border-bottom-color: $black_60;
+//    }
+//  }
+//  .panel-heading {
+//    border-color: $black;
+//  }
+//}
+//
+
+//
+//.modal-content {
+//  background-color: $color_outer_space_approx;
+//}
+//
+//.modal-header {
+//  border-bottom: 1px solid $color_mirage_approx;
+//}
+//
+//.modal-footer {
+//  border-top: 1px solid $color_mirage_approx;
+//}
+//
+//.popover {
+//  background-color: $color_outer_space_approx;
+//  border: 1px solid $color_mountain_mist_approx;
+//  &.top > .arrow {
+//    border-top-color: $color_storm_dust_approx;
+//    &:after {
+//      border-top-color: $color_outer_space_approx;
+//    }
+//  }
+//  &.right > .arrow {
+//    border-right-color: $color_storm_dust_approx;
+//    &:after {
+//      border-right-color: $color_outer_space_approx;
+//    }
+//  }
+//  &.bottom > .arrow {
+//    border-bottom-color: $black_25;
+//    &:after {
+//      border-bottom-color: $color_outer_space_approx;
+//    }
+//  }
+//  &.left > .arrow {
+//    border-left-color: $color_storm_dust_approx;
+//    &:after {
+//      border-left-color: $color_outer_space_approx;
+//    }
+//  }
+//}
+//
+//.popover-title {
+//  background-color: $color_outer_space_approx;
+//  border-bottom: 1px solid $color_shark_approx;
+//}
+//
+//.carousel-control {
+//  background-color: rgba(0, 0, 0, 0);
+//}
+//
+//input {
+//  color: $color_baltic_sea_approx;
+//}
+//
+//textarea {
+//  color: $color_baltic_sea_approx;
+//}
+//
+//.alert {
+//  .alert-link {
+//    color: $white;
+//  }
+//  a {
+//    color: $white;
+//  }
+//  .close {
+//    color: $black;
+//  }
+//}
+//
+//.table-striped > tbody > tr:nth-of-type(odd) {
+//  background-color: $color_tuna_approx;
+//}
+//
+//.table-hover > tbody > tr {
+//  &:hover {
+//    background-color: $color_trout_approx;
+//    > {
+//      .active {
+//        background-color: $color_bright_gray_approx;
+//      }
+//      .success {
+//        background-color: $color_apple_approx;
+//      }
+//      .info {
+//        background-color: $color_picton_blue_approx;
+//      }
+//      .warning {
+//        background-color: $color_tahiti_gold_approx;
+//      }
+//      .danger {
+//        background-color: $color_sunset_orange_approx;
+//      }
+//    }
+//  }
+//  > td {
+//    &.active:hover {
+//      background-color: $color_bright_gray_approx;
+//    }
+//    &.success:hover {
+//      background-color: $color_apple_approx;
+//    }
+//    &.info:hover {
+//      background-color: $color_picton_blue_approx;
+//    }
+//    &.warning:hover {
+//      background-color: $color_tahiti_gold_approx;
+//    }
+//    &.danger:hover {
+//      background-color: $color_sunset_orange_approx;
+//    }
+//  }
+//  > th {
+//    &.active:hover {
+//      background-color: $color_bright_gray_approx;
+//    }
+//    &.success:hover {
+//      background-color: $color_apple_approx;
+//    }
+//    &.info:hover {
+//      background-color: $color_picton_blue_approx;
+//    }
+//    &.warning:hover {
+//      background-color: $color_tahiti_gold_approx;
+//    }
+//    &.danger:hover {
+//      background-color: $color_sunset_orange_approx;
+//    }
+//  }
+//  &.active:hover {
+//    > td {
+//      background-color: $color_bright_gray_approx;
+//    }
+//    > th {
+//      background-color: $color_bright_gray_approx;
+//    }
+//  }
+//  &.success:hover {
+//    > td {
+//      background-color: $color_apple_approx;
+//    }
+//    > th {
+//      background-color: $color_apple_approx;
+//    }
+//  }
+//  &.info:hover {
+//    > td {
+//      background-color: $color_picton_blue_approx;
+//    }
+//    > th {
+//      background-color: $color_picton_blue_approx;
+//    }
+//  }
+//  &.warning:hover {
+//    > td {
+//      background-color: $color_tahiti_gold_approx;
+//    }
+//    > th {
+//      background-color: $color_tahiti_gold_approx;
+//    }
+//  }
+//  &.danger:hover {
+//    > td {
+//      background-color: $color_sunset_orange_approx;
+//    }
+//    > th {
+//      background-color: $color_sunset_orange_approx;
+//    }
+//  }
+//}
+//
+//.open > .dropdown-toggle {
+//  &.btn-default {
+//    color: $white;
+//    background-color: $color_shark_approx;
+//    border-color: $color_mirage_approx;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_bunker_approx;
+//      border-color: $black;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_bunker_approx;
+//      border-color: $black;
+//    }
+//    &.focus {
+//      color: $white;
+//      background-color: $color_bunker_approx;
+//      border-color: $black;
+//    }
+//  }
+//  &.btn-primary {
+//    background-color: $color_shuttle_gray_approx;
+//    border-color: $color_mid_gray_approx;
+//    &:hover {
+//      background-color: $color_abbey_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//    &:focus {
+//      background-color: $color_abbey_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//    &.focus {
+//      background-color: $color_abbey_approx;
+//      border-color: $color_cape_cod_approx;
+//    }
+//  }
+//  &.btn-success {
+//    background-color: $color_apple_approx;
+//    border-color: $color_apple_approx;
+//    background-image: none;
+//    &:hover {
+//      background-color: $color_apple_approx;
+//      border-color: $color_forest_green_approx;
+//    }
+//    &:focus {
+//      background-color: $color_apple_approx;
+//      border-color: $color_forest_green_approx;
+//    }
+//    &.focus {
+//      background-color: $color_apple_approx;
+//      border-color: $color_forest_green_approx;
+//    }
+//  }
+//  &.btn-info {
+//    background-color: $color_scooter_approx;
+//    border-color: $color_scooter_approx;
+//    &:hover {
+//      background-color: $color_eastern_blue_approx;
+//      border-color: $color_jelly_bean_approx;
+//    }
+//    &:focus {
+//      background-color: $color_eastern_blue_approx;
+//      border-color: $color_jelly_bean_approx;
+//    }
+//    &.focus {
+//      background-color: $color_eastern_blue_approx;
+//      border-color: $color_jelly_bean_approx;
+//    }
+//  }
+//  &.btn-warning {
+//    background-color: $color_indochine_approx;
+//    border-color: $color_indochine_approx;
+//    &:hover {
+//      background-color: $color_mai_tai_approx;
+//      border-color: $color_cinnamon_approx;
+//    }
+//    &:focus {
+//      background-color: $color_mai_tai_approx;
+//      border-color: $color_cinnamon_approx;
+//    }
+//    &.focus {
+//      background-color: $color_mai_tai_approx;
+//      border-color: $color_cinnamon_approx;
+//    }
+//  }
+//  &.btn-danger {
+//    background-color: $color_alizarin_crimson_approx;
+//    border-color: $color_alizarin_crimson_approx;
+//    &:hover {
+//      color: $white;
+//      background-color: $color_thunderbird_approx;
+//      border-color: $color_milano_red_approx;
+//    }
+//    &:focus {
+//      color: $white;
+//      background-color: $color_thunderbird_approx;
+//      border-color: $color_milano_red_approx;
+//    }
+//    &.focus {
+//      color: $white;
+//      background-color: $color_thunderbird_approx;
+//      border-color: $color_milano_red_approx;
+//    }
+//  }
+//}
+//
+//.nav-tabs-justified > .active > a {
+//  border: 1px solid $color_mirage_approx;
+//  &:hover {
+//    border: 1px solid $color_mirage_approx;
+//  }
+//  &:focus {
+//    border: 1px solid $color_mirage_approx;
+//  }
+//}
+//
+//.carousel-indicators li {
+//  background-color: rgba(0, 0, 0, 0);
+//}
+//
+//.table-responsive > .table {
+//  background-color: $color_outer_space_approx;
+//}
+//
+//@media(min-width: 768px) {
+//  .nav-tabs-justified {
+//    > li > a {
+//      border-bottom: 1px solid $color_mirage_approx;
+//    }
+//    > .active > a {
+//      border-bottom-color: $color_baltic_sea_approx;
+//      &:hover {
+//        border-bottom-color: $color_baltic_sea_approx;
+//      }
+//      &:focus {
+//        border-bottom-color: $color_baltic_sea_approx;
+//      }
+//    }
+//  }
+//  .navbar-default {
+//    .navbar-nav > li {
+//      > a {
+//        border-right: 1px solid $black_20;
+//        border-left: 1px solid $white_10;
+//        &:hover {
+//          border-left-color: transparent;
+//        }
+//      }
+//      &.active > a {
+//        border-left-color: transparent;
+//      }
+//    }
+//    .nav .open > a {
+//      border-color: transparent;
+//    }
+//  }
+//  .navbar-inverse {
+//    .navbar-nav > li {
+//      > a {
+//        border-right: 1px solid $black_20;
+//        border-left: 1px solid $white_10;
+//        &:hover {
+//          border-left-color: transparent;
+//        }
+//      }
+//      &.active > a {
+//        border-left-color: transparent;
+//      }
+//    }
+//    .nav .open > a {
+//      border-color: transparent;
+//    }
+//  }
+//  .nav-tabs.nav-justified {
+//    > li > a {
+//      border-bottom: 1px solid $color_mirage_approx;
+//    }
+//    > .active > a {
+//      border-bottom-color: $color_baltic_sea_approx;
+//      &:hover {
+//        border-bottom-color: $color_baltic_sea_approx;
+//      }
+//      &:focus {
+//        border-bottom-color: $color_baltic_sea_approx;
+//      }
+//    }
+//  }
+//}
+//
+//@media screen and(max-width: 767px) {
+//  .table-responsive {
+//    border: 1px solid $color_mirage_approx;
+//  }
+//}
+//
+//@media(max-width: 767px) {
+//  .navbar-default .navbar-nav .open .dropdown-menu {
+//    > {
+//      .active > a {
+//        color: $white;
+//        background-color: $color_shark_approx;
+//        &:hover {
+//          color: $white;
+//          background-color: $color_shark_approx;
+//        }
+//        &:focus {
+//          color: $white;
+//          background-color: $color_shark_approx;
+//        }
+//      }
+//      .disabled > a {
+//        color: $color_celeste_approx;
+//        &:hover {
+//          color: $color_celeste_approx;
+//        }
+//        &:focus {
+//          color: $color_celeste_approx;
+//        }
+//      }
+//    }
+//    > li > a {
+//      color: $color_pumice_approx;
+//      &:hover {
+//        color: $white;
+//        background-color: $color_shark_approx;
+//      }
+//      &:focus {
+//        color: $white;
+//        background-color: $color_shark_approx;
+//      }
+//    }
+//  }
+//  .navbar-inverse .navbar-nav .open .dropdown-menu {
+//    > {
+//      .dropdown-header {
+//        border-color: $color_shuttle_gray_approx;
+//      }
+//      .active > a {
+//        background-color: $color_mid_gray_approx;
+//        &:hover {
+//          background-color: $color_mid_gray_approx;
+//        }
+//        &:focus {
+//          background-color: $color_mid_gray_approx;
+//        }
+//      }
+//      .disabled > a {
+//        color: $color_celeste_approx;
+//        &:hover {
+//          color: $color_celeste_approx;
+//        }
+//        &:focus {
+//          color: $color_celeste_approx;
+//        }
+//      }
+//    }
+//    .divider {
+//      background-color: $color_shuttle_gray_approx;
+//    }
+//    > li > a {
+//      color: $color_celeste_approx;
+//      &:hover {
+//        background-color: $color_mid_gray_approx;
+//      }
+//      &:focus {
+//        background-color: $color_mid_gray_approx;
+//      }
+//    }
+//  }
+//}

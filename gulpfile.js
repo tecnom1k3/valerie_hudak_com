@@ -1,4 +1,3 @@
-// generated on 2017-07-08 using generator-webapp 3.0.1
 'use strict';
 require('dotenv').config();
 const gulp            = require('gulp');
@@ -16,8 +15,14 @@ const reload = browserSync.reload;
 let dev = true;
 
 gulp.task('styles', () => {
-  return gulp.src('app/styles/*.css')
+    return gulp.src('app/styles/*.scss')
+    .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
+    .pipe($.sass.sync({
+        outputStyle: 'expanded',
+        precision: 10,
+        includePaths: ['.']
+    }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.if(dev, $.sourcemaps.write()))
     .pipe(gulp.dest('.tmp/styles'))
@@ -115,7 +120,7 @@ gulp.task('serve', () => {
       '.tmp/fonts/**/*'
     ]).on('change', reload);
 
-    gulp.watch('app/styles/**/*.css', ['styles']);
+    gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);
     gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);
@@ -153,9 +158,15 @@ gulp.task('serve:test', ['scripts'], () => {
 
 // inject bower components
 gulp.task('wiredep', () => {
+  gulp.src('app/styles/*.scss')
+    .pipe($.filter(file => file.stat && file.stat.size))
+    .pipe(wiredep({
+        ignorePath: /^(\.\.\/)+/
+    }))
+    .pipe(gulp.dest('app/styles'));
   gulp.src('app/*.html')
     .pipe(wiredep({
-      exclude: ['bootstrap.js'],
+      exclude: ['bootstrap-sass'],
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('app'));
@@ -174,10 +185,10 @@ gulp.task('default', () => {
 
 gulp.task('deploy:stage', ['build'], () => {
     const AWS = {
-        "key":    process.env.AWS_ACCESS_KEY_ID,
-        "secret": process.env.AWS_SECRET_ACCESS_KEY,
-        "bucket": process.env.AWS_BUCKET_STAGE,
-        "region": process.env.AWS_REGION
+        'key':    process.env.AWS_ACCESS_KEY_ID,
+        'secret': process.env.AWS_SECRET_ACCESS_KEY,
+        'bucket': process.env.AWS_BUCKET_STAGE,
+        'region': process.env.AWS_REGION
     };
 
     gulp.src('./dist/**').pipe(s3(AWS));
@@ -185,10 +196,10 @@ gulp.task('deploy:stage', ['build'], () => {
 
 gulp.task('deploy:prod', ['build'], () => {
     const AWS = {
-        "key":    process.env.AWS_ACCESS_KEY_ID,
-        "secret": process.env.AWS_SECRET_ACCESS_KEY,
-        "bucket": process.env.AWS_BUCKET_PROD,
-        "region": process.env.AWS_REGION
+        'key':    process.env.AWS_ACCESS_KEY_ID,
+        'secret': process.env.AWS_SECRET_ACCESS_KEY,
+        'bucket': process.env.AWS_BUCKET_PROD,
+        'region': process.env.AWS_REGION
     };
 
     gulp.src('./dist/**').pipe(s3(AWS));

@@ -145,6 +145,13 @@ body {
   border: 1px solid $color_woodsmoke_approx;
 }
 
+.bg {
+  background-image: url("../images/visuals-000269086225-PlY5Ou-t2480x520.jpg") ;
+  background-size: 100% auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+
+}
 //hr {
 //  border-top: 1px solid $color_mirage_approx;
 //}
@@ -2482,7 +2489,7 @@ body {
 //}
 //
 .jumbotron {
-  background-color: $color_mirage_approx;
+  background-color: $color_black_approx;
   border: 1px solid $black_60;
   > hr {
     border-top-color: $color_black_approx;

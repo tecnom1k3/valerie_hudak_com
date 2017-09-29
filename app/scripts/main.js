@@ -3,6 +3,9 @@
 $.ajaxSetup({ cache: false });
 
 $(function () {
+
+    const apiUrl = 'http://api-dev.valeriehudak.com';
+
     /**
      *
      * @type {{getCSRF}}
@@ -16,7 +19,7 @@ $(function () {
          */
         const getCSRF = function(element) {
             const jsPromise = Promise.resolve(jQuery.ajax({
-                url: 'http://api.awesome.dev/api/csrf',
+                url: apiUrl + '/api/csrf',
                 jsonp: 'callback',
                 dataType: 'jsonp'
             }));
@@ -34,7 +37,7 @@ $(function () {
     const FormHandlerModule = (function (jQuery) {
         const submitForm = function (form) {
             jQuery.post(
-                'http://api.awesome.dev/api/form',
+                apiUrl + '/api/form',
                 form.serialize(),
                 function (data) {
                     alert(JSON.stringify(data));

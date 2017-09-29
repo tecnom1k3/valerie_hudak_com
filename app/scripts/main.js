@@ -36,13 +36,22 @@ $(function () {
 
     const FormHandlerModule = (function (jQuery) {
         const submitForm = function (form) {
+            jQuery('#modalWait').modal('show');
             jQuery.post(
                 apiUrl + '/api/form',
                 form.serialize(),
                 function (data) {
-                    alert(JSON.stringify(data));
+                    jQuery('#modalWait').modal('hide');
+                    if (data.success) {
+                        jQuery('#modalSuccess').modal('show');
+                    } else {
+                        jQuery('#modalError').modal('show');
+                    }
                 }
-            );
+            ).fail(function () {
+                jQuery('#modalWait').modal('hide');
+                jQuery('#modalError').modal('show');
+            });
         };
 
         return {

@@ -7,12 +7,12 @@ const del             = require('del');
 const wiredep         = require('wiredep').stream;
 const runSequence     = require('run-sequence');
 const rename          = require('gulp-regex-rename');
-const s3              = require('gulp-s3');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 let dev = true;
+let environment = 'local';
 
 gulp.task('styles', () => {
     return gulp.src('app/styles/*.scss')
@@ -30,11 +30,25 @@ gulp.task('styles', () => {
 });
 
 gulp.task('scripts', () => {
+
+    let apiEndpoint = '';
+    if (dev) {
+        apiEndpoint = process.env.API_ENDPOINT_LOCAL;
+    } else {
+        if (environment === 'prod') {
+            apiEndpoint = process.env.API_ENDPOINT_PROD;
+        } else {
+            apiEndpoint = process.env.API_ENDPOINT_DEV;
+        }
+
+    }
+
   return gulp.src('app/scripts/**/*.js')
     .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.babel())
     .pipe($.if(dev, $.sourcemaps.write('.')))
+    .pipe($.replace('{{API_ENDPOINT}}', apiEndpoint))
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({stream: true}));
 });
@@ -183,7 +197,8 @@ gulp.task('default', () => {
   });
 });
 
-gulp.task('deploy:stage', ['build'], () => {
+gulp.task('deploy:stage', () => {
+    environment = 'dev';
     const AWS = {
         'key':    process.env.AWS_ACCESS_KEY_ID,
         'secret': process.env.AWS_SECRET_ACCESS_KEY,
@@ -191,10 +206,13 @@ gulp.task('deploy:stage', ['build'], () => {
         'region': process.env.AWS_REGION
     };
 
-    gulp.src('./dist/**').pipe(s3(AWS));
+    runSequence('default', () => {
+        gulp.src('./dist/**').pipe($.s3(AWS));
+    });
 });
 
-gulp.task('deploy:prod', ['build'], () => {
+gulp.task('deploy:prod', () => {
+    environment = 'prod';
     const AWS = {
         'key':    process.env.AWS_ACCESS_KEY_ID,
         'secret': process.env.AWS_SECRET_ACCESS_KEY,
@@ -202,6 +220,8 @@ gulp.task('deploy:prod', ['build'], () => {
         'region': process.env.AWS_REGION
     };
 
-    gulp.src('./dist/**').pipe(s3(AWS));
+    runSequence('default', () => {
+        gulp.src('./dist/**').pipe($.s3(AWS));
+    });
 });
 

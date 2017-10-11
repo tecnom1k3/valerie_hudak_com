@@ -4,7 +4,7 @@ $.ajaxSetup({ cache: false });
 
 $(function () {
 
-    const apiUrl = 'https://api-dev.valeriehudak.com';
+    const apiUrl = '{{API_ENDPOINT}}';
 
     /**
      *

@@ -4,7 +4,7 @@ $.ajaxSetup({ cache: false });
 
 $(function () {
 
-    const apiUrl = 'http://api-dev.valeriehudak.com';
+    const apiUrl = 'https://api-dev.valeriehudak.com';
 
     /**
      *
@@ -37,18 +37,24 @@ $(function () {
     const FormHandlerModule = (function (jQuery) {
         const submitForm = function (form) {
             jQuery('#modalWait').modal('show');
-            jQuery.post(
-                apiUrl + '/api/form',
-                form.serialize(),
-                function (data) {
-                    jQuery('#modalWait').modal('hide');
-                    if (data.success) {
-                        jQuery('#modalSuccess').modal('show');
-                    } else {
-                        jQuery('#modalError').modal('show');
-                    }
+
+            const jsPromise = Promise.resolve(jQuery.ajax({
+                url: apiUrl + '/api/form',
+                jsonp: 'callback',
+                dataType: 'json',
+                type: 'POST',
+                crossDomain: true,
+                data: form.serialize()
+            }));
+
+            jsPromise.then(function (data) {
+                jQuery('#modalWait').modal('hide');
+                if (data.success) {
+                    jQuery('#modalSuccess').modal('show');
+                } else {
+                    jQuery('#modalError').modal('show');
                 }
-            ).fail(function () {
+            }, function (reason) {
                 jQuery('#modalWait').modal('hide');
                 jQuery('#modalError').modal('show');
             });
@@ -68,5 +74,6 @@ $(function () {
     $('#commentForm').submit(function (e) {
         e.preventDefault();
         FormHandlerModule.submitForm($(this));
+        grecaptcha.reset();
     });
 });

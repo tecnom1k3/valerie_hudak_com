@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Valerie Hudak</title>
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!--<link rel="apple-touch-icon" href="apple-touch-icon.png">-->
     <!-- Place favicon.ico in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -67,6 +67,7 @@
             };
         })(window, document, window['_fs_namespace'], 'script', 'user');
     </script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 <!--[if IE]>
@@ -74,11 +75,57 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
+<!-- Modal -->
+<div class="modal fade" id="modalWait" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-time" style="vertical-align: baseline"></span> Please wait</h4>
+            </div>
+            <div class="modal-body">
+                Your comments are being submitted <span class="glyphicon glyphicon-share"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalError" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel2"><span class="glyphicon glyphicon-remove" style="vertical-align: baseline"></span> Error</h4>
+            </div>
+            <div class="modal-body">
+                I was not able to send your comments, please make sure all the fields have your information.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel3"><span class="glyphicon glyphicon-ok" style="vertical-align: baseline"></span> Success</h4>
+            </div>
+            <div class="modal-body">
+                Your information was sent.
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="header">
         <ul class="nav nav-pills pull-right">
             <li class="active">
-                <a href="#">Home</a>
+                <a class="btn btn-primary active" href="#">Home</a>
+            </li>
+            <li class="">
+                <a class="btn btn-primary" href="#contact">Contact me</a>
             </li>
         </ul>
         <h1 class="text-muted">Valerie Hudak</h1>
@@ -87,7 +134,7 @@
             href="mailto:info@valeriehudak.com">info@valeriehudak.com</a></div>
     </div>
     <div class="well well-sm lead">
-        Keyboardist - symphonic metal background.
+        Song writer, keyboardist - symphonic metal background.
     </div>
     <div class="jumbotron bg">
         <h1>Coming soon!</h1>
@@ -99,30 +146,28 @@
                     src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/269086225&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
         </div>
     </div>
-    <h3>Follow me on Instagram</h3>
-    <div class="well well-sm">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7"
-                    style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-            <div style="padding:8px;">
-                <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;">
-                    <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div>
-                </div>
-                <p style=" margin:8px 0 0 0; padding:0 4px;"><a href="https://www.instagram.com/p/BWSmV2_l7VU/"
-                                                                style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;"
-                                                                target="_blank">Forever proof I did not come
-                    into this world to be a model ahaha. Still, the lighting on these portraits is really nice.
-                    Photos by @miguelgocobachi #photography #portraitphotography #smokyeyes #gothic
-                    #gothicfashion #gothicfashion #metalgirl #metalgirls #badmodels</a></p>
-                <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
-                    A post shared by Valerie Hudak (@valeriehudak) on
-                    <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;"
-                          datetime="2017-07-08T15:28:17+00:00">Jul 8, 2017 at 8:28am PDT
-                    </time>
-                </p>
-            </div>
-        </blockquote>
-        <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
-    </div>
+    <a name="contact"></a>
+    <h1>Contact form</h1>
+    <form id="commentForm" name="commentForm" method="post" action="">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input  class="form-control" id="name" name="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="comments">Comments</label>
+            <textarea class="form-control" id="comments" name="comments" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6LdO_zAUAAAAANuYY8rrwbm7QHzxtZQ-JQAs_f7m"></div>
+        </div>
+        <input type="hidden" class="form-control" id="token" name="token" >
+        <button type="submit" class="btn btn-default active">Submit <span class="glyphicon glyphicon-send"></span></button>
+    </form>
+    <p></p>
     <div class="footer">
         &copy; 2017
     </div>

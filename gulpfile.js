@@ -1,4 +1,5 @@
 'use strict';
+// generated on 2018-04-12 using generator-webapp 3.0.1
 require('dotenv').config();
 const gulp            = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
@@ -15,13 +16,13 @@ let dev = true;
 let environment = 'local';
 
 gulp.task('styles', () => {
-    return gulp.src('app/styles/*.scss')
+  return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.sass.sync({
-        outputStyle: 'expanded',
-        precision: 10,
-        includePaths: ['.']
+      outputStyle: 'expanded',
+      precision: 10,
+      includePaths: ['.']
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.if(dev, $.sourcemaps.write()))
@@ -40,7 +41,6 @@ gulp.task('scripts', () => {
         } else {
             apiEndpoint = process.env.API_ENDPOINT_DEV;
         }
-
     }
 
   return gulp.src('app/scripts/**/*.js')
@@ -119,7 +119,7 @@ gulp.task('serve', () => {
   runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
     browserSync.init({
       notify: false,
-      port: 8080,
+      port: 9000,
       server: {
         baseDir: ['.tmp', 'app'],
         routes: {
@@ -144,7 +144,7 @@ gulp.task('serve', () => {
 gulp.task('serve:dist', ['default'], () => {
   browserSync.init({
     notify: false,
-    port: 8080,
+    port: 9000,
     server: {
       baseDir: ['dist']
     }
@@ -154,7 +154,7 @@ gulp.task('serve:dist', ['default'], () => {
 gulp.task('serve:test', ['scripts'], () => {
   browserSync.init({
     notify: false,
-    port: 8080,
+    port: 9000,
     ui: false,
     server: {
       baseDir: 'test',
@@ -175,9 +175,10 @@ gulp.task('wiredep', () => {
   gulp.src('app/styles/*.scss')
     .pipe($.filter(file => file.stat && file.stat.size))
     .pipe(wiredep({
-        ignorePath: /^(\.\.\/)+/
+      ignorePath: /^(\.\.\/)+/
     }))
     .pipe(gulp.dest('app/styles'));
+
   gulp.src('app/*.html')
     .pipe(wiredep({
       exclude: ['bootstrap-sass'],
@@ -224,4 +225,3 @@ gulp.task('deploy:prod', () => {
         gulp.src('./dist/**').pipe($.s3(AWS));
     });
 });
-
